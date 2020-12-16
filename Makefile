@@ -1,6 +1,7 @@
 SRC_DIR=src
 TEST_DIR=test
 TEMPLATE_DIR="template"
+TASK_DIR=tasks
 
 PREFIX_DAY=day
 PREFIX_TEST=test_day
@@ -41,6 +42,7 @@ new:
 	curl -f -b "session=$(SESSION)" \
 		"https://adventofcode.com/2020/day/$(ARG_DAY)/input" \
 		-o "./inputs/day-$(ARG_DAY).txt"
+	python tools/getTask.py $(ARG_DAY) $(TASK_DIR)/$(PREFIX_DAY)_$(ARG_DAY).md
 
 test:
 	@if [ -z "${ARG_DAY}" ]; then \
